@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": { "contact": {}, "title": "[PUBLIC] POGR Api", "version": "1.0.0" },
   "host": "api.pogr.io",
-  "basePath": "v1/",
+  "basePath": "/v1",
   "schemes": ["https"],
   "paths": {
     "/check-key-status": {
