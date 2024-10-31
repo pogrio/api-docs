@@ -1,1 +1,1601 @@
-{"swagger":"2.0","info":{"contact":{},"title":"[PUBLIC]","version":"1.0.0"},"basePath":"%7B%7BPOGR_API%7D%7D%7B%7BAPI_VERSION%7D%7Duser","paths":{"/check-key-status":{"get":{"parameters":[{"in":"query","name":"game_key","type":"string"},{"description":"Game Client","in":"header","name":"GAME_CLIENT","type":"string"}],"responses":{"200":{"description":""}},"tags":["Game service"],"description":"CheckGameKeyStatus","operationId":"checkgamekeystatus","summary":"CheckGameKeyStatus"}},"/data":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"header","name":"INTAKE_SESSION_ID","type":"string"},{"in":"body","name":"body","schema":{"properties":{"any":{"example":1,"type":"number"},"any_thing":{"properties":{"accept":{"example":"string","type":"string"},"it":{"example":false,"type":"boolean"},"we":{"example":"string","type":"string"}},"type":"object"},"data":{"example":"string","type":"string"},"doesn_t_matter":{"example":[1,2,3,4,5,6],"items":{"example":1,"type":"number"},"type":"array"},"type":{"example":true,"type":"boolean"}},"type":"object"}}],"responses":{"200":{"description":"flow-3","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"data_id":{"example":"662126e5fab8884aa3693936","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"400":{"description":"Invalid request body","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Invalid request body","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}},"401":{"description":"Unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| data | object | required |","operationId":"data","summary":"/data"}},"/end":{"post":{"consumes":["text/plain"],"produces":["application/json"],"parameters":[{"in":"header","name":"INTAKE_SESSION_ID","type":"string"},{"in":"body","name":"body","schema":{"format":"binary","type":"string"}}],"responses":{"200":{"description":"success","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"success":{"example":true,"type":"boolean"}},"type":"object"}},"401":{"description":"unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"/end","operationId":"end","summary":"/end"}},"/event":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"header","name":"INTAKE_SESSION_ID","type":"string"},{"in":"body","name":"body","schema":{"properties":{"event":{"example":"player_login","type":"string"},"event_data":{"properties":{"achievement_name":{"example":"Master Explorer","type":"string"},"player_id":{"example":"12345","type":"string"}},"type":"object"},"event_flag":{"example":"completed","type":"string"},"event_key":{"example":"level_5_unlocked","type":"string"},"event_type":{"example":"achievement","type":"string"},"sub_event":{"example":"level_up","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"flow-3","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"event_id":{"example":"662639910399df39f335067f","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"400":{"description":"Missing required field","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Key: 'EventBody.Event' Error:Field validation for 'Event' failed on the 'required' tag","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}},"401":{"description":"Unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| event | string | required |\n| sub_event | string |  |\n| event_type | string |  |\n| event_flag | string |  |\n| event_key | string |  |\n| event_data | object |  |","operationId":"event","summary":"/event"}},"/init":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"description":"Required Client ID for a Pogr Enabled Project","in":"header","name":"POGR_CLIENT","type":"string"},{"description":"Required Build ID for a Pogr Enabled Project","in":"header","name":"POGR_BUILD","type":"string"},{"in":"body","name":"body","schema":{"properties":{"association_id":{"example":"12qw","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"flow-1","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"session_id":{"example":"66211ed9-d6de-4c0a-8764-c5b989000000","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"401":{"description":"unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"### Initiate Intake\n\nThis endpoint is used to initiate an intake process.\n\n#### Request Body\n\n| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| association_id | string | Required if bearer token is not passed in the header |\n\n#### Response\n\n- success (boolean): Indicates if the request was successful.\n- payload\n    - session_id (string): The ID of the initiated session.\n\n#### Example\n\nRequest:\n\n``` json\n{\n  \"association_id\": \"\"\n}\n\n```\n\nResponse:\n\n``` json\n{\n  \"success\": true,\n  \"payload\": {\n    \"session_id\": \"\"\n  }\n}\n\n```","operationId":"init","summary":"/init"}},"/logs":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"header","name":"INTAKE_SESSION_ID","type":"string"},{"in":"body","name":"body","schema":{"properties":{"tags":{"properties":{"action":{"example":"login","type":"string"},"system":{"example":"authentication-server","type":"string"}},"type":"object"},"data":{"properties":{"ip_address":{"example":"192.168.1.100","type":"string"},"timestamp":{"example":"2023-09-07T13:45:00.000Z","type":"string"},"user_id":{"example":"123456","type":"string"}},"type":"object"},"environment":{"example":"live","type":"string"},"log":{"example":"User authentication successful","type":"string"},"service":{"example":"authentication","type":"string"},"severity":{"example":"info","type":"string"},"type":{"example":"user-authentication","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"flow-2","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"log_id":{"example":"66263b2f0399df39f3350682","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"400":{"description":"Invalid request","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Invalid request body","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}},"401":{"description":"Unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| service | string | required |\n| environment | string | required |\n| severity | string |  |\n| type | string |  |\n| log | string |  |\n| data | object |  |\n| tags | object | must be a string or numeric |","operationId":"logs","summary":"/logs"}},"/metrics":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"header","name":"INTAKE_SESSION_ID","type":"string"},{"in":"body","name":"body","schema":{"properties":{"tags":{"properties":{"game_mode":{"example":"multiplayer","type":"string"},"location":{"example":"datacenter_1","type":"string"}},"type":"object"},"environment":{"example":"production","type":"string"},"metrics":{"properties":{"average_latency_ms":{"example":35.7,"type":"number"},"players_online":{"example":250,"type":"number"},"server_load_percentage":{"example":75.2,"type":"number"}},"type":"object"},"service":{"example":"game_server","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"flow-2","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"metrics_id":{"example":"66263c150399df39f3350685","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"400":{"description":"Invalid request body","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Invalid request body","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}},"401":{"description":"Unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| service | string | required |\n| environment | string | required |\n| metrics | object |  |\n| tags | object | must be a string or numeric |","operationId":"metrics","summary":"/metrics"}},"/oauth2/api/email":{"get":{"produces":["application/json"],"parameters":[{"in":"header","name":"POGR_CLIENT","type":"string"},{"in":"header","name":"POGR_SESSION","type":"string"}],"responses":{"200":{"description":"Invalid token","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"Via":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"error":{"example":"invalid token","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"GET email","operationId":"getEmail","summary":"GET email"}},"/oauth2/api/game-library":{"get":{"produces":["application/json"],"parameters":[],"responses":{"200":{"description":"Missing Token","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"Via":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"error":{"example":"Missing Token","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"GET Game library","operationId":"getGameLibrary","summary":"GET Game library"}},"/oauth2/api/game-library/activate":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"body","schema":{"properties":{"game_key":{"example":"POGR-0zH-B3R8-2345750","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"Sucess","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"Via":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"message":{"example":"Game activated","type":"string"},"payload":{"properties":{"logo":{"example":"https://cdn-dev.pogr.io/game/53bf2b1a-953e-430a-a184-8c8d4a95813d/image/pexels-element-digital-1293261-1703137296940.jpg","type":"string"},"name":{"example":"War zone","type":"string"},"uid":{"example":"8517fb57-03e2-41de-bc9b-8108e1318a31","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Activate Game","operationId":"activateGame","summary":"Activate Game"}},"/oauth2/api/game-library/{game_uid}":{"parameters":[{"in":"path","name":"game_uid","required":true,"type":"string"}],"get":{"produces":["application/json"],"parameters":[],"responses":{"200":{"description":"Jwt expired","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"error":{"example":"jwt expired","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"GET Check Activation","operationId":"getCheckActivation","summary":"GET Check Activation"}},"/oauth2/api/game/clients":{"get":{"produces":["application/json"],"parameters":[],"responses":{"200":{"description":"Success","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"payload":{"example":[{"build_count":"1","client_id":"5639154f-748c-472e-b9f3-8408bce306b8","name":"Mac","status":{"name":"Outdated","uid":"b2b219fc-273b-5107-af05-f54de5aae9dd"},"uid":"85a0be9e-0d84-43ef-9cdf-03c83d23fb56","version":"Beta"}],"items":{"properties":{"build_count":{"example":"1","type":"string"},"client_id":{"example":"5639154f-748c-472e-b9f3-8408bce306b8","type":"string"},"name":{"example":"Mac","type":"string"},"status":{"properties":{"name":{"example":"Outdated","type":"string"},"uid":{"example":"b2b219fc-273b-5107-af05-f54de5aae9dd","type":"string"}},"type":"object"},"uid":{"example":"85a0be9e-0d84-43ef-9cdf-03c83d23fb56","type":"string"},"version":{"example":"Beta","type":"string"}},"type":"object"},"type":"array"},"success":{"example":true,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Game clients","operationId":"gameClients","summary":"Game clients"},"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"body","schema":{"properties":{"name":{"example":"aashik client","type":"string"},"version":{"example":"","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"Error body","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"errors":{"example":[{"location":"body","msg":"Version is required","param":"version","value":""}],"items":{"properties":{"location":{"example":"body","type":"string"},"msg":{"example":"Version is required","type":"string"},"param":{"example":"version","type":"string"},"value":{"example":"","type":"string"}},"type":"object"},"type":"array"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Game client","operationId":"gameClient","summary":"Game client"}},"/oauth2/api/game/clients/{client_uid}/build":{"parameters":[{"in":"path","name":"client_uid","required":true,"type":"string"}],"get":{"produces":["application/json"],"parameters":[{"in":"query","name":"","type":"string"}],"responses":{"200":{"description":"Error","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"errors":{"example":[{"location":"params","msg":"Invalid client uid","param":"client_uid","value":"7a967631-a4f9-45a6-926a-2fe6a245ef6"}],"items":{"properties":{"location":{"example":"params","type":"string"},"msg":{"example":"Invalid client uid","type":"string"},"param":{"example":"client_uid","type":"string"},"value":{"example":"7a967631-a4f9-45a6-926a-2fe6a245ef6","type":"string"}},"type":"object"},"type":"array"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Game client builds","operationId":"gameClientBuilds","summary":"Game client builds"},"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"body","schema":{"properties":{"name":{"example":"aashik build","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"Error param","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"errors":{"example":[{"location":"params","msg":"Invalid client uid","param":"client_uid","value":"7a967631-a4f9-45a6-926a-2fe6a245ef6"}],"items":{"properties":{"location":{"example":"params","type":"string"},"msg":{"example":"Invalid client uid","type":"string"},"param":{"example":"client_uid","type":"string"},"value":{"example":"7a967631-a4f9-45a6-926a-2fe6a245ef6","type":"string"}},"type":"object"},"type":"array"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Game client build","operationId":"gameClientBuild","summary":"Game client build"}},"/oauth2/api/me":{"get":{"produces":["application/json"],"parameters":[],"responses":{"200":{"description":"Success","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"Via":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"display_name":{"example":"rafath_pogr","type":"string"},"profile_picture":{"example":"https://cdn.pogr.io/profile/e87a4709-4dbf-42e8-b896-dfafdb3605a9/79b6d9e9-00ac-5093-8409-85999b3e5827.jpeg","type":"string"},"uid":{"example":"e87a4709-4dbf-42e8-b896-dfafdb3605a9","type":"string"},"username":{"example":"rafath_pogr11","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"GET User details","operationId":"getUserDetails","summary":"GET User details"}},"/oauth2/api/token":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"body","schema":{"properties":{"client_id":{"example":"d3abec8c-1803-4772-9710-483c29844252","type":"string"},"client_secret":{"example":"b0fb561ee74bfc3ec211f960ac9428e1560136ee2b109a60287ca789f6488b6a33b3158bfd0d29dd9daf1ca927f03e8eb03793b550e459ea2fee03c8afeec3a1","type":"string"},"code":{"example":"PG1714044960073131a5aGujgX0giJyBMc","type":"string"},"grant_type":{"example":"authorization_code","type":"string"},"redirect_uri":{"example":"https://google.com","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"Success","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"accessToken":{"example":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzZiYjY5NTctMGY3Mi00NDY5LWJmZjItNjk0YWFjMzdjMmZiIiwiaWF0IjoxNjkwMzY5Nzg0LCJleHAiOjE2OTAzNzMzODR9.RTN4GPDpm9taXYqOEaxRqUJN1lrU14bKQ0kTdinXOe4","type":"string"},"refreshToken":{"example":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzZiYjY5NTctMGY3Mi00NDY5LWJmZjItNjk0YWFjMzdjMmZiIiwiaWF0IjoxNjkwMzY5Nzg0LCJleHAiOjE2OTA5NzQ1ODR9.aiks83gULnbr0g7fU7m8ihvcdXkjlzbqJmXCoqV3N3s","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"400":{"description":"Invalid authorization code","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"error":{"example":"Invalid authorization code","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}},"401":{"description":"Invalid client credentials","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"error":{"example":"Invalid client credentials","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Token","operationId":"token","summary":"Token"}},"/oauth2/api/token/revoke":{"post":{"consumes":["application/json"],"parameters":[{"in":"body","name":"body","schema":{"properties":{"client_id":{"example":"d3abec8c-1803-4772-9710-483c29844252","type":"string"},"client_secret":{"example":"b0fb561ee74bfc3ec211f960ac9428e1560136ee2b109a60287ca789f6488b6a33b3158bfd0d29dd9daf1ca927f03e8eb03793b550e459ea2fee03c8afeec3a1","type":"string"},"token":{"example":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDc4ODZhZmItYmJmOC00OWQ3LWIyYzgtNTU1ZTJiMzY3ZGM1IiwiaWQiOjEzMSwiY2xpZW50SWQiOiJkM2FiZWM4Yy0xODAzLTQ3NzItOTcxMC00ODNjMjk4NDQyNTIiLCJjb2RlIjoiUEcxNzE0MDM3NTYxOTQ5MTMxYkJIY2lTeTJsUUg0eTg1bCIsImlhdCI6MTcxNDAzNzU3OSwiZXhwIjoxNzE0MDQxMTc5fQ.gmuPZdWiQoFfluTcefYzmVpHAbjQIF7TYZwbeLDFt4I","type":"string"}},"type":"object"}}],"responses":{"200":{"description":""}},"tags":["OAuth Service","User"],"description":"Revoke token","operationId":"revokeToken","summary":"Revoke token"}},"/oauth2/api/token/validate":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"body","schema":{"properties":{"access_token":{"example":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjQxMGUzYTItZTVjOC00MzM4LTk4MWUtMWUxYzUwYjQwNTk1IiwiaWQiOjk0LCJjbGllbnRJZCI6IjhkZWI1NjRiLTNkNGMtNDJkNi05OWZlLWMxMjViMjE3NzRjNCIsImlhdCI6MTcxNDAzMzA1MCwiZXhwIjoxNzE0MDM2NjUwfQ.D34BHkFnJ6MCWFtjJ-TN9iXHLl3-l_iE-DMZvSx5rlM","type":"string"},"client_id":{"example":"8deb564b-3d4c-42d6-99fe-c125b21774c4","type":"string"},"client_secret":{"example":"a2f2d835a0cad2cb6f94c98520f256a02677841a79699493b5614c98d0a48eff500f6a955762845892833a1968978061479271e5ae7468a3334216bbbef6a98a","type":"string"}},"type":"object"}}],"responses":{"200":{"description":"Success","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"message":{"example":"Token validation successful","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}}},"tags":["OAuth Service","User"],"description":"Validate Token","operationId":"validateToken","summary":"Validate Token"}},"/public/{vanity_name}/{type}":{"parameters":[{"description":"username","in":"path","name":"vanity_name","required":true,"type":"string"},{"description":"Overview, Game profiles, Achievements, Records, Activity","in":"path","name":"type","required":true,"type":"string"}],"get":{"produces":["application/json"],"parameters":[],"responses":{"200":{"description":"Success with no widgets","headers":{"Access-Control-Allow-Origin":{"type":"string"},"Connection":{"type":"string"},"Content-Length":{"type":"string"},"Content-Security-Policy":{"type":"string"},"Date":{"type":"string"},"ETag":{"type":"string"},"Expect-CT":{"type":"string"},"Keep-Alive":{"type":"string"},"Origin-Agent-Cluster":{"type":"string"},"Referrer-Policy":{"type":"string"},"Strict-Transport-Security":{"type":"string"},"X-Content-Type-Options":{"type":"string"},"X-DNS-Prefetch-Control":{"type":"string"},"X-Download-Options":{"type":"string"},"X-Frame-Options":{"type":"string"},"X-Permitted-Cross-Domain-Policies":{"type":"string"},"X-XSS-Protection":{"type":"string"}},"schema":{"properties":{"message":{"example":"User details","type":"string"},"payload":{"properties":{"user_info":{"properties":{"account_status":{"example":"active","type":"string"},"display_name":{"example":"Nisha CN","type":"string"},"exp_required":{"example":null,"x-nullable":true},"level":{"example":null,"x-nullable":true},"profile_picture":{"example":null,"x-nullable":true},"role":{"example":"user","type":"string"},"total_exp":{"example":null,"x-nullable":true},"uid":{"example":"254f013f-074a-4934-a1a5-9be2f8c51b03","type":"string"}},"type":"object"},"widgets":{"example":[],"items":{},"type":"array"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}}},"tags":["Account service"],"description":"Public view","operationId":"publicView","summary":"Public view"}},"/v1/intake/monitor":{"post":{"consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"header","name":"INTAKE_SESSION_ID","type":"string"},{"in":"body","name":"body","schema":{"properties":{"cpu_usage":{"example":10.5,"type":"number"},"dlls_loaded":{"example":["graphics.dll","physics.dll","sound.dll"],"items":{"example":"graphics.dll","type":"string"},"type":"array"},"memory_usage":{"example":2048000,"type":"number"},"settings":{"properties":{"graphics_quality":{"example":"high","type":"string"}},"type":"object"}},"type":"object"}}],"responses":{"200":{"description":"flow-2","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"payload":{"properties":{"monitor_id":{"example":"66263c570399df39f3350686","type":"string"}},"type":"object"},"success":{"example":true,"type":"boolean"}},"type":"object"}},"400":{"description":"validation error","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"invalid monitor settings type","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}},"401":{"description":"Unauthorized","headers":{"Alt-Svc":{"type":"string"},"Content-Length":{"type":"string"},"Date":{"type":"string"},"Vary":{"type":"string"},"Via":{"type":"string"}},"schema":{"properties":{"error":{"example":"Unauthorized","type":"string"},"success":{"example":false,"type":"boolean"}},"type":"object"}}},"tags":["Intake service"],"description":"| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| cpu_usage | number |  |\n| memory_usage | int |  |\n| dlls_loaded | string\\[\\] |  |\n| settings | object | must be a string or numeric |","operationId":"monitor","summary":"/monitor"}}},"tags":[{"name":"Account service"},{"description":"These endpoints are used to push data into Pogr.","name":"Intake service"},{"name":"OAuth Service"},{"name":"User"},{"name":"Game service"}]}
+{
+  "swagger": "2.0",
+  "info": { "contact": {}, "title": "[PUBLIC] POGR Api", "version": "1.0.0" },
+  "host": "api.pogr.io",
+  "basePath": "v1/",
+  "schemes": ["https"],
+  "paths": {
+    "/check-key-status": {
+      "get": {
+        "parameters": [
+          { "in": "query", "name": "game_key", "type": "string" },
+          {
+            "description": "Game Client",
+            "in": "header",
+            "name": "GAME_CLIENT",
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Game service"],
+        "description": "CheckGameKeyStatus",
+        "operationId": "checkgamekeystatus",
+        "summary": "CheckGameKeyStatus"
+      }
+    },
+    "/data": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "INTAKE_SESSION_ID", "type": "string" },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "any": { "example": 1, "type": "number" },
+                "any_thing": {
+                  "properties": {
+                    "accept": { "example": "string", "type": "string" },
+                    "it": { "example": false, "type": "boolean" },
+                    "we": { "example": "string", "type": "string" }
+                  },
+                  "type": "object"
+                },
+                "data": { "example": "string", "type": "string" },
+                "doesn_t_matter": {
+                  "example": [1, 2, 3, 4, 5, 6],
+                  "items": { "example": 1, "type": "number" },
+                  "type": "array"
+                },
+                "type": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "flow-3",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "data_id": {
+                      "example": "662126e5fab8884aa3693936",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid request body",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "Invalid request body",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| data | object | required |",
+        "operationId": "data",
+        "summary": "/data"
+      }
+    },
+    "/end": {
+      "post": {
+        "consumes": ["text/plain"],
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "INTAKE_SESSION_ID", "type": "string" },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { "format": "binary", "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "/end",
+        "operationId": "end",
+        "summary": "/end"
+      }
+    },
+    "/event": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "INTAKE_SESSION_ID", "type": "string" },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "event": { "example": "player_login", "type": "string" },
+                "event_data": {
+                  "properties": {
+                    "achievement_name": {
+                      "example": "Master Explorer",
+                      "type": "string"
+                    },
+                    "player_id": { "example": "12345", "type": "string" }
+                  },
+                  "type": "object"
+                },
+                "event_flag": { "example": "completed", "type": "string" },
+                "event_key": {
+                  "example": "level_5_unlocked",
+                  "type": "string"
+                },
+                "event_type": { "example": "achievement", "type": "string" },
+                "sub_event": { "example": "level_up", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "flow-3",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "event_id": {
+                      "example": "662639910399df39f335067f",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Missing required field",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "Key: 'EventBody.Event' Error:Field validation for 'Event' failed on the 'required' tag",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| event | string | required |\n| sub_event | string |  |\n| event_type | string |  |\n| event_flag | string |  |\n| event_key | string |  |\n| event_data | object |  |",
+        "operationId": "event",
+        "summary": "/event"
+      }
+    },
+    "/init": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "description": "Required Client ID for a Pogr Enabled Project",
+            "in": "header",
+            "name": "POGR_CLIENT",
+            "type": "string"
+          },
+          {
+            "description": "Required Build ID for a Pogr Enabled Project",
+            "in": "header",
+            "name": "POGR_BUILD",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "association_id": { "example": "12qw", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "flow-1",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "session_id": {
+                      "example": "66211ed9-d6de-4c0a-8764-c5b989000000",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "### Initiate Intake\n\nThis endpoint is used to initiate an intake process.\n\n#### Request Body\n\n| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| association_id | string | Required if bearer token is not passed in the header |\n\n#### Response\n\n- success (boolean): Indicates if the request was successful.\n- payload\n    - session_id (string): The ID of the initiated session.\n\n#### Example\n\nRequest:\n\n``` json\n{\n  \"association_id\": \"\"\n}\n\n```\n\nResponse:\n\n``` json\n{\n  \"success\": true,\n  \"payload\": {\n    \"session_id\": \"\"\n  }\n}\n\n```",
+        "operationId": "init",
+        "summary": "/init"
+      }
+    },
+    "/logs": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "INTAKE_SESSION_ID", "type": "string" },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "tags": {
+                  "properties": {
+                    "action": { "example": "login", "type": "string" },
+                    "system": {
+                      "example": "authentication-server",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "data": {
+                  "properties": {
+                    "ip_address": {
+                      "example": "192.168.1.100",
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "example": "2023-09-07T13:45:00.000Z",
+                      "type": "string"
+                    },
+                    "user_id": { "example": "123456", "type": "string" }
+                  },
+                  "type": "object"
+                },
+                "environment": { "example": "live", "type": "string" },
+                "log": {
+                  "example": "User authentication successful",
+                  "type": "string"
+                },
+                "service": { "example": "authentication", "type": "string" },
+                "severity": { "example": "info", "type": "string" },
+                "type": { "example": "user-authentication", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "flow-2",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "log_id": {
+                      "example": "66263b2f0399df39f3350682",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "Invalid request body",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| service | string | required |\n| environment | string | required |\n| severity | string |  |\n| type | string |  |\n| log | string |  |\n| data | object |  |\n| tags | object | must be a string or numeric |",
+        "operationId": "logs",
+        "summary": "/logs"
+      }
+    },
+    "/metrics": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "INTAKE_SESSION_ID", "type": "string" },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "tags": {
+                  "properties": {
+                    "game_mode": { "example": "multiplayer", "type": "string" },
+                    "location": { "example": "datacenter_1", "type": "string" }
+                  },
+                  "type": "object"
+                },
+                "environment": { "example": "production", "type": "string" },
+                "metrics": {
+                  "properties": {
+                    "average_latency_ms": { "example": 35.7, "type": "number" },
+                    "players_online": { "example": 250, "type": "number" },
+                    "server_load_percentage": {
+                      "example": 75.2,
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "service": { "example": "game_server", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "flow-2",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "metrics_id": {
+                      "example": "66263c150399df39f3350685",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid request body",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "Invalid request body",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| service | string | required |\n| environment | string | required |\n| metrics | object |  |\n| tags | object | must be a string or numeric |",
+        "operationId": "metrics",
+        "summary": "/metrics"
+      }
+    },
+    "/oauth2/api/email": {
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "POGR_CLIENT", "type": "string" },
+          { "in": "header", "name": "POGR_SESSION", "type": "string" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invalid token",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "Via": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "invalid token", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "GET email",
+        "operationId": "getEmail",
+        "summary": "GET email"
+      }
+    },
+    "/oauth2/api/game-library": {
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Missing Token",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "Via": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Missing Token", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "GET Game library",
+        "operationId": "getGameLibrary",
+        "summary": "GET Game library"
+      }
+    },
+    "/oauth2/api/game-library/activate": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "game_key": {
+                  "example": "POGR-0zH-B3R8-2345750",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucess",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "Via": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "message": { "example": "Game activated", "type": "string" },
+                "payload": {
+                  "properties": {
+                    "logo": {
+                      "example": "https://cdn-dev.pogr.io/game/53bf2b1a-953e-430a-a184-8c8d4a95813d/image/pexels-element-digital-1293261-1703137296940.jpg",
+                      "type": "string"
+                    },
+                    "name": { "example": "War zone", "type": "string" },
+                    "uid": {
+                      "example": "8517fb57-03e2-41de-bc9b-8108e1318a31",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Activate Game",
+        "operationId": "activateGame",
+        "summary": "Activate Game"
+      }
+    },
+    "/oauth2/api/game-library/{game_uid}": {
+      "parameters": [
+        { "in": "path", "name": "game_uid", "required": true, "type": "string" }
+      ],
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Jwt expired",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "jwt expired", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "GET Check Activation",
+        "operationId": "getCheckActivation",
+        "summary": "GET Check Activation"
+      }
+    },
+    "/oauth2/api/game/clients": {
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "example": [
+                    {
+                      "build_count": "1",
+                      "client_id": "5639154f-748c-472e-b9f3-8408bce306b8",
+                      "name": "Mac",
+                      "status": {
+                        "name": "Outdated",
+                        "uid": "b2b219fc-273b-5107-af05-f54de5aae9dd"
+                      },
+                      "uid": "85a0be9e-0d84-43ef-9cdf-03c83d23fb56",
+                      "version": "Beta"
+                    }
+                  ],
+                  "items": {
+                    "properties": {
+                      "build_count": { "example": "1", "type": "string" },
+                      "client_id": {
+                        "example": "5639154f-748c-472e-b9f3-8408bce306b8",
+                        "type": "string"
+                      },
+                      "name": { "example": "Mac", "type": "string" },
+                      "status": {
+                        "properties": {
+                          "name": { "example": "Outdated", "type": "string" },
+                          "uid": {
+                            "example": "b2b219fc-273b-5107-af05-f54de5aae9dd",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "uid": {
+                        "example": "85a0be9e-0d84-43ef-9cdf-03c83d23fb56",
+                        "type": "string"
+                      },
+                      "version": { "example": "Beta", "type": "string" }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Game clients",
+        "operationId": "gameClients",
+        "summary": "Game clients"
+      },
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "name": { "example": "aashik client", "type": "string" },
+                "version": { "example": "", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Error body",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "errors": {
+                  "example": [
+                    {
+                      "location": "body",
+                      "msg": "Version is required",
+                      "param": "version",
+                      "value": ""
+                    }
+                  ],
+                  "items": {
+                    "properties": {
+                      "location": { "example": "body", "type": "string" },
+                      "msg": {
+                        "example": "Version is required",
+                        "type": "string"
+                      },
+                      "param": { "example": "version", "type": "string" },
+                      "value": { "example": "", "type": "string" }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Game client",
+        "operationId": "gameClient",
+        "summary": "Game client"
+      }
+    },
+    "/oauth2/api/game/clients/{client_uid}/build": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client_uid",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [{ "in": "query", "name": "", "type": "string" }],
+        "responses": {
+          "200": {
+            "description": "Error",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "errors": {
+                  "example": [
+                    {
+                      "location": "params",
+                      "msg": "Invalid client uid",
+                      "param": "client_uid",
+                      "value": "7a967631-a4f9-45a6-926a-2fe6a245ef6"
+                    }
+                  ],
+                  "items": {
+                    "properties": {
+                      "location": { "example": "params", "type": "string" },
+                      "msg": {
+                        "example": "Invalid client uid",
+                        "type": "string"
+                      },
+                      "param": { "example": "client_uid", "type": "string" },
+                      "value": {
+                        "example": "7a967631-a4f9-45a6-926a-2fe6a245ef6",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Game client builds",
+        "operationId": "gameClientBuilds",
+        "summary": "Game client builds"
+      },
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "name": { "example": "aashik build", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Error param",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "errors": {
+                  "example": [
+                    {
+                      "location": "params",
+                      "msg": "Invalid client uid",
+                      "param": "client_uid",
+                      "value": "7a967631-a4f9-45a6-926a-2fe6a245ef6"
+                    }
+                  ],
+                  "items": {
+                    "properties": {
+                      "location": { "example": "params", "type": "string" },
+                      "msg": {
+                        "example": "Invalid client uid",
+                        "type": "string"
+                      },
+                      "param": { "example": "client_uid", "type": "string" },
+                      "value": {
+                        "example": "7a967631-a4f9-45a6-926a-2fe6a245ef6",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Game client build",
+        "operationId": "gameClientBuild",
+        "summary": "Game client build"
+      }
+    },
+    "/oauth2/api/me": {
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "Via": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "display_name": {
+                      "example": "rafath_pogr",
+                      "type": "string"
+                    },
+                    "profile_picture": {
+                      "example": "https://cdn.pogr.io/profile/e87a4709-4dbf-42e8-b896-dfafdb3605a9/79b6d9e9-00ac-5093-8409-85999b3e5827.jpeg",
+                      "type": "string"
+                    },
+                    "uid": {
+                      "example": "e87a4709-4dbf-42e8-b896-dfafdb3605a9",
+                      "type": "string"
+                    },
+                    "username": { "example": "rafath_pogr11", "type": "string" }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "GET User details",
+        "operationId": "getUserDetails",
+        "summary": "GET User details"
+      }
+    },
+    "/oauth2/api/token": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "client_id": {
+                  "example": "d3abec8c-1803-4772-9710-483c29844252",
+                  "type": "string"
+                },
+                "client_secret": {
+                  "example": "b0fb561ee74bfc3ec211f960ac9428e1560136ee2b109a60287ca789f6488b6a33b3158bfd0d29dd9daf1ca927f03e8eb03793b550e459ea2fee03c8afeec3a1",
+                  "type": "string"
+                },
+                "code": {
+                  "example": "PG1714044960073131a5aGujgX0giJyBMc",
+                  "type": "string"
+                },
+                "grant_type": {
+                  "example": "authorization_code",
+                  "type": "string"
+                },
+                "redirect_uri": {
+                  "example": "https://google.com",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "accessToken": {
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzZiYjY5NTctMGY3Mi00NDY5LWJmZjItNjk0YWFjMzdjMmZiIiwiaWF0IjoxNjkwMzY5Nzg0LCJleHAiOjE2OTAzNzMzODR9.RTN4GPDpm9taXYqOEaxRqUJN1lrU14bKQ0kTdinXOe4",
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzZiYjY5NTctMGY3Mi00NDY5LWJmZjItNjk0YWFjMzdjMmZiIiwiaWF0IjoxNjkwMzY5Nzg0LCJleHAiOjE2OTA5NzQ1ODR9.aiks83gULnbr0g7fU7m8ihvcdXkjlzbqJmXCoqV3N3s",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid authorization code",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "Invalid authorization code",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Invalid client credentials",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "Invalid client credentials",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Token",
+        "operationId": "token",
+        "summary": "Token"
+      }
+    },
+    "/oauth2/api/token/revoke": {
+      "post": {
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "client_id": {
+                  "example": "d3abec8c-1803-4772-9710-483c29844252",
+                  "type": "string"
+                },
+                "client_secret": {
+                  "example": "b0fb561ee74bfc3ec211f960ac9428e1560136ee2b109a60287ca789f6488b6a33b3158bfd0d29dd9daf1ca927f03e8eb03793b550e459ea2fee03c8afeec3a1",
+                  "type": "string"
+                },
+                "token": {
+                  "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDc4ODZhZmItYmJmOC00OWQ3LWIyYzgtNTU1ZTJiMzY3ZGM1IiwiaWQiOjEzMSwiY2xpZW50SWQiOiJkM2FiZWM4Yy0xODAzLTQ3NzItOTcxMC00ODNjMjk4NDQyNTIiLCJjb2RlIjoiUEcxNzE0MDM3NTYxOTQ5MTMxYkJIY2lTeTJsUUg0eTg1bCIsImlhdCI6MTcxNDAzNzU3OSwiZXhwIjoxNzE0MDQxMTc5fQ.gmuPZdWiQoFfluTcefYzmVpHAbjQIF7TYZwbeLDFt4I",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["OAuth Service", "User"],
+        "description": "Revoke token",
+        "operationId": "revokeToken",
+        "summary": "Revoke token"
+      }
+    },
+    "/oauth2/api/token/validate": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "access_token": {
+                  "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjQxMGUzYTItZTVjOC00MzM4LTk4MWUtMWUxYzUwYjQwNTk1IiwiaWQiOjk0LCJjbGllbnRJZCI6IjhkZWI1NjRiLTNkNGMtNDJkNi05OWZlLWMxMjViMjE3NzRjNCIsImlhdCI6MTcxNDAzMzA1MCwiZXhwIjoxNzE0MDM2NjUwfQ.D34BHkFnJ6MCWFtjJ-TN9iXHLl3-l_iE-DMZvSx5rlM",
+                  "type": "string"
+                },
+                "client_id": {
+                  "example": "8deb564b-3d4c-42d6-99fe-c125b21774c4",
+                  "type": "string"
+                },
+                "client_secret": {
+                  "example": "a2f2d835a0cad2cb6f94c98520f256a02677841a79699493b5614c98d0a48eff500f6a955762845892833a1968978061479271e5ae7468a3334216bbbef6a98a",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "message": {
+                      "example": "Token validation successful",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["OAuth Service", "User"],
+        "description": "Validate Token",
+        "operationId": "validateToken",
+        "summary": "Validate Token"
+      }
+    },
+    "/public/{vanity_name}/{type}": {
+      "parameters": [
+        {
+          "description": "username",
+          "in": "path",
+          "name": "vanity_name",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Overview, Game profiles, Achievements, Records, Activity",
+          "in": "path",
+          "name": "type",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success with no widgets",
+            "headers": {
+              "Access-Control-Allow-Origin": { "type": "string" },
+              "Connection": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Content-Security-Policy": { "type": "string" },
+              "Date": { "type": "string" },
+              "ETag": { "type": "string" },
+              "Expect-CT": { "type": "string" },
+              "Keep-Alive": { "type": "string" },
+              "Origin-Agent-Cluster": { "type": "string" },
+              "Referrer-Policy": { "type": "string" },
+              "Strict-Transport-Security": { "type": "string" },
+              "X-Content-Type-Options": { "type": "string" },
+              "X-DNS-Prefetch-Control": { "type": "string" },
+              "X-Download-Options": { "type": "string" },
+              "X-Frame-Options": { "type": "string" },
+              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
+              "X-XSS-Protection": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "message": { "example": "User details", "type": "string" },
+                "payload": {
+                  "properties": {
+                    "user_info": {
+                      "properties": {
+                        "account_status": {
+                          "example": "active",
+                          "type": "string"
+                        },
+                        "display_name": {
+                          "example": "Nisha CN",
+                          "type": "string"
+                        },
+                        "exp_required": { "example": null, "x-nullable": true },
+                        "level": { "example": null, "x-nullable": true },
+                        "profile_picture": {
+                          "example": null,
+                          "x-nullable": true
+                        },
+                        "role": { "example": "user", "type": "string" },
+                        "total_exp": { "example": null, "x-nullable": true },
+                        "uid": {
+                          "example": "254f013f-074a-4934-a1a5-9be2f8c51b03",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "widgets": { "example": [], "items": {}, "type": "array" }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Account service"],
+        "description": "Public view",
+        "operationId": "publicView",
+        "summary": "Public view"
+      }
+    },
+    "/v1/intake/monitor": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          { "in": "header", "name": "INTAKE_SESSION_ID", "type": "string" },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "cpu_usage": { "example": 10.5, "type": "number" },
+                "dlls_loaded": {
+                  "example": ["graphics.dll", "physics.dll", "sound.dll"],
+                  "items": { "example": "graphics.dll", "type": "string" },
+                  "type": "array"
+                },
+                "memory_usage": { "example": 2048000, "type": "number" },
+                "settings": {
+                  "properties": {
+                    "graphics_quality": { "example": "high", "type": "string" }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "flow-2",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "payload": {
+                  "properties": {
+                    "monitor_id": {
+                      "example": "66263c570399df39f3350686",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "success": { "example": true, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "validation error",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": {
+                  "example": "invalid monitor settings type",
+                  "type": "string"
+                },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Alt-Svc": { "type": "string" },
+              "Content-Length": { "type": "string" },
+              "Date": { "type": "string" },
+              "Vary": { "type": "string" },
+              "Via": { "type": "string" }
+            },
+            "schema": {
+              "properties": {
+                "error": { "example": "Unauthorized", "type": "string" },
+                "success": { "example": false, "type": "boolean" }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": ["Intake service"],
+        "description": "| Field Name | Type | Required/Restrictions |\n| --- | --- | --- |\n| cpu_usage | number |  |\n| memory_usage | int |  |\n| dlls_loaded | string\\[\\] |  |\n| settings | object | must be a string or numeric |",
+        "operationId": "monitor",
+        "summary": "/monitor"
+      }
+    }
+  },
+  "tags": [
+    { "name": "Account service" },
+    {
+      "description": "These endpoints are used to push data into Pogr.",
+      "name": "Intake service"
+    },
+    { "name": "OAuth Service" },
+    { "name": "User" },
+    { "name": "Game service" }
+  ]
+}
