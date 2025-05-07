@@ -594,25 +594,6 @@
         "responses": {
           "200": {
             "description": "Invalid token",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Alt-Svc": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "Via": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "error": { "example": "invalid token", "type": "string" },
@@ -635,25 +616,6 @@
         "responses": {
           "200": {
             "description": "Missing Token",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Alt-Svc": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "Via": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "error": { "example": "Missing Token", "type": "string" },
@@ -691,25 +653,6 @@
         "responses": {
           "200": {
             "description": "Sucess",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Alt-Svc": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "Via": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "message": { "example": "Game activated", "type": "string" },
@@ -749,25 +692,6 @@
         "responses": {
           "200": {
             "description": "Jwt expired",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "error": { "example": "jwt expired", "type": "string" },
@@ -790,25 +714,6 @@
         "responses": {
           "200": {
             "description": "Success",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "payload": {
@@ -883,25 +788,6 @@
         "responses": {
           "200": {
             "description": "Error body",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "errors": {
@@ -954,25 +840,6 @@
         "responses": {
           "200": {
             "description": "Error",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "errors": {
@@ -1030,25 +897,6 @@
         "responses": {
           "200": {
             "description": "Error param",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "errors": {
@@ -1096,25 +944,6 @@
         "responses": {
           "200": {
             "description": "Success",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Alt-Svc": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "Via": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "payload": {
@@ -1185,25 +1014,6 @@
         "responses": {
           "200": {
             "description": "Success",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "payload": {
@@ -1226,25 +1036,6 @@
           },
           "400": {
             "description": "Invalid authorization code",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "error": {
@@ -1258,25 +1049,6 @@
           },
           "401": {
             "description": "Invalid client credentials",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "error": {
@@ -1358,25 +1130,6 @@
         "responses": {
           "200": {
             "description": "Success",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "payload": {
@@ -1423,25 +1176,6 @@
         "responses": {
           "200": {
             "description": "Success with no widgets",
-            "headers": {
-              "Access-Control-Allow-Origin": { "type": "string" },
-              "Connection": { "type": "string" },
-              "Content-Length": { "type": "string" },
-              "Content-Security-Policy": { "type": "string" },
-              "Date": { "type": "string" },
-              "ETag": { "type": "string" },
-              "Expect-CT": { "type": "string" },
-              "Keep-Alive": { "type": "string" },
-              "Origin-Agent-Cluster": { "type": "string" },
-              "Referrer-Policy": { "type": "string" },
-              "Strict-Transport-Security": { "type": "string" },
-              "X-Content-Type-Options": { "type": "string" },
-              "X-DNS-Prefetch-Control": { "type": "string" },
-              "X-Download-Options": { "type": "string" },
-              "X-Frame-Options": { "type": "string" },
-              "X-Permitted-Cross-Domain-Policies": { "type": "string" },
-              "X-XSS-Protection": { "type": "string" }
-            },
             "schema": {
               "properties": {
                 "message": { "example": "User details", "type": "string" },
