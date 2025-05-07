@@ -1488,7 +1488,7 @@
         "summary": "Public view"
       }
     },
-    "/v1/intake/monitor": {
+    "/intake/monitor": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
