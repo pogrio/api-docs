@@ -5,7 +5,7 @@
   "basePath": "/v1",
   "schemes": ["https"],
   "paths": {
-    "/check-key-status": {
+    "/games/check-key-status": {
       "get": {
         "parameters": [
           { "in": "query", "name": "game_key", "type": "string" },
@@ -1153,7 +1153,7 @@
         "summary": "Validate Token"
       }
     },
-    "/public/{vanity_name}/{type}": {
+    "/user/public/{vanity_name}/{type}": {
       "parameters": [
         {
           "description": "username",
