@@ -23,7 +23,7 @@
         "summary": "CheckGameKeyStatus"
       }
     },
-    "/data": {
+    "/intake/data": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -125,7 +125,7 @@
         "summary": "/data"
       }
     },
-    "/end": {
+    "/intake/end": {
       "post": {
         "consumes": ["text/plain"],
         "produces": ["application/json"],
@@ -178,7 +178,7 @@
         "summary": "/end"
       }
     },
-    "/event": {
+    "/intake/event": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -282,7 +282,7 @@
         "summary": "/event"
       }
     },
-    "/init": {
+    "/intake/init": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -360,7 +360,7 @@
         "summary": "/init"
       }
     },
-    "/logs": {
+    "/intake/logs": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -478,7 +478,7 @@
         "summary": "/logs"
       }
     },
-    "/metrics": {
+    "/intake/metrics": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -584,7 +584,7 @@
         "summary": "/metrics"
       }
     },
-    "/oauth2/api/email": {
+    "/auth/oauth2/api/email": {
       "get": {
         "produces": ["application/json"],
         "parameters": [
@@ -609,7 +609,7 @@
         "summary": "GET email"
       }
     },
-    "/oauth2/api/game-library": {
+    "/auth/oauth2/api/game-library": {
       "get": {
         "produces": ["application/json"],
         "parameters": [],
@@ -631,7 +631,7 @@
         "summary": "GET Game library"
       }
     },
-    "/oauth2/api/game-library/activate": {
+    "/auth/oauth2/api/game-library/activate": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -682,7 +682,7 @@
         "summary": "Activate Game"
       }
     },
-    "/oauth2/api/game-library/{game_uid}": {
+    "/auth/oauth2/api/game-library/{game_uid}": {
       "parameters": [
         { "in": "path", "name": "game_uid", "required": true, "type": "string" }
       ],
@@ -707,7 +707,7 @@
         "summary": "GET Check Activation"
       }
     },
-    "/oauth2/api/game/clients": {
+    "/auth/oauth2/api/game/clients": {
       "get": {
         "produces": ["application/json"],
         "parameters": [],
@@ -825,7 +825,7 @@
         "summary": "Game client"
       }
     },
-    "/oauth2/api/game/clients/{client_uid}/build": {
+    "/auth/oauth2/api/game/clients/{client_uid}/build": {
       "parameters": [
         {
           "in": "path",
@@ -937,7 +937,7 @@
         "summary": "Game client build"
       }
     },
-    "/oauth2/api/me": {
+    "/auth/oauth2/api/me": {
       "get": {
         "produces": ["application/json"],
         "parameters": [],
@@ -976,7 +976,7 @@
         "summary": "GET User details"
       }
     },
-    "/oauth2/api/token": {
+    "/auth/oauth2/api/token": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -1067,7 +1067,7 @@
         "summary": "Token"
       }
     },
-    "/oauth2/api/token/revoke": {
+    "/auth/oauth2/api/token/revoke": {
       "post": {
         "consumes": ["application/json"],
         "parameters": [
@@ -1100,7 +1100,7 @@
         "summary": "Revoke token"
       }
     },
-    "/oauth2/api/token/validate": {
+    "/auth/oauth2/api/token/validate": {
       "post": {
         "consumes": ["application/json"],
         "produces": ["application/json"],
